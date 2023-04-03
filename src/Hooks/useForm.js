@@ -5,6 +5,11 @@ const types = {
     regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     message: 'Please fill with a valid e-mail',
   },
+  password: {
+    regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
+    message:
+      'Your password must have at least: 8 digits, 1 uppercase, 1 number and 1 special character.',
+  },
 };
 
 const useForm = (type) => {
@@ -17,7 +22,7 @@ const useForm = (type) => {
       setError('Please fill in this field');
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
-      setError(types[type.message]);
+      setError(types[type].message);
       return false;
     } else {
       setError(null);
