@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ReactComponent as Send } from '../Assets/enviar.svg';
-import useFetch from '../Hooks/useFetch';
-import { COMMENT_POST } from '../api';
-import Error from '../Components/Helper/Error';
+import { ReactComponent as Send } from '../../Assets/enviar.svg';
+import useFetch from '../../Hooks/useFetch';
+import { COMMENT_POST } from '../../api';
+import Error from '../Helper/Error';
 import styles from './PhotoCommentsForm.module.css';
 
 const PhotoCommentsForm = ({ id, setComments }) => {

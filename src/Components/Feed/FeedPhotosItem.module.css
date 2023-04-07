@@ -10,7 +10,7 @@
   }
 }
 
-.photo {
+.photo > div {
   display: grid;
   border-radius: .2rem;
   overflow: hidden;
