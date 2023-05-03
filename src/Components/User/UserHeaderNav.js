@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { UserContext } from '../../UserContext';
 import { ReactComponent as MyPhotos } from '../../Assets/feed.svg';
 import { ReactComponent as Stats } from '../../Assets/estatisticas.svg';
 import { ReactComponent as Post } from '../../Assets/adicionar.svg';
 import { ReactComponent as Logout } from '../../Assets/sair.svg';
 import useMedia from '../../Hooks/useMedia';
 import styles from './UserHeaderNav.module.css';
+import { useDispatch } from 'react-redux';
+import { userLogout } from '../../store/user';
 
 const UserHeaderNav = () => {
-  const { userLogout } = React.useContext(UserContext);
+  const dispatch = useDispatch();
   const mobile = useMedia('(max-width: 720px)');
   const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -22,16 +23,18 @@ const UserHeaderNav = () => {
     <>
       {mobile && (
         <button
-          className={`${styles.mobileButton} ${mobileMenu &&
-            styles.mobileButtonActive}`}
+          className={`${styles.mobileButton} ${
+            mobileMenu && styles.mobileButtonActive
+          }`}
           aria-label="Menu"
           onClick={() => setMobileMenu(!mobileMenu)}
         ></button>
       )}
 
       <nav
-        className={`${mobile ? styles.navMobile : styles.nav} ${mobileMenu &&
-          styles.navMobileActive}`}
+        className={`${mobile ? styles.navMobile : styles.nav} ${
+          mobileMenu && styles.navMobileActive
+        }`}
       >
         <NavLink to="/myaccount" end>
           <MyPhotos />
@@ -45,7 +48,7 @@ const UserHeaderNav = () => {
           <Post />
           {mobile && 'Add photo'}
         </NavLink>
-        <button onClick={userLogout}>
+        <button onClick={() => dispatch(userLogout())}>
           <Logout />
           {mobile && 'Logout'}
         </button>

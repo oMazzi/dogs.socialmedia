@@ -9,14 +9,14 @@ import Head from '../Helper/Head';
 import { useSelector } from 'react-redux';
 
 const User = () => {
-  const { id } = useSelector((state) => state.user.data);
+  const { data } = useSelector((state) => state.user);
 
   return (
     <section className="container">
       <Head title="My account" />
       <UserHeader />
       <Routes>
-        <Route path="/" element={<Feed user={id} />} />
+        <Route path="/" element={<Feed user={data ? data.id : null} />} />
         <Route path="/post" element={<UserPhotoPost />} />
         <Route path="/stats" element={<UserStats />} />
         <Route path="*" element={<NotFound />} />
