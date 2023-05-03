@@ -4,19 +4,19 @@ import UserHeader from './UserHeader';
 import Feed from '../Feed/Feed';
 import UserPhotoPost from './UserPhotoPost';
 import UserStats from './UserStats';
-import { UserContext } from '../../UserContext';
 import NotFound from '../NotFound';
 import Head from '../Helper/Head';
+import { useSelector } from 'react-redux';
 
 const User = () => {
-  const { data } = React.useContext(UserContext);
+  const { id } = useSelector((state) => state.user.data);
 
   return (
     <section className="container">
       <Head title="My account" />
       <UserHeader />
       <Routes>
-        <Route path="/" element={<Feed user={data.id} />} />
+        <Route path="/" element={<Feed user={id} />} />
         <Route path="/post" element={<UserPhotoPost />} />
         <Route path="/stats" element={<UserStats />} />
         <Route path="*" element={<NotFound />} />

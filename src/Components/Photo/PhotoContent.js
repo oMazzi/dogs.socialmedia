@@ -5,10 +5,12 @@ import PhotoComments from './PhotoComments';
 import { UserContext } from '../../UserContext';
 import PhotoDelete from './PhodoDelete';
 import Image from '../Helper/Image';
+import { useSelector } from 'react-redux';
 
-const PhotoContent = ({ data }) => {
-  const { photo, comments } = data;
+const PhotoContent = () => {
   const user = React.useContext(UserContext);
+  const { photo, comments } = useSelector((state) => state.photo.data);
+
   return (
     <div className={styles.photo}>
       <div className={styles.img}>

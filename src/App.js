@@ -7,7 +7,7 @@ import Header from './Components/Header';
 import Login from './Components/Login/Login';
 import { UserStorage } from './UserContext';
 import User from './Components/User/User';
-import ProtectedRoute from './Components/Helper/ProtectedRoute';
+// import ProtectedRoute from './Components/Helper/ProtectedRoute';
 import UserProfile from './Components/User/UserProfile';
 import NotFound from './Components/NotFound';
 
@@ -21,14 +21,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="login/*" element={<Login />} />
-              <Route
-                path="myaccount/*"
-                element={
-                  <ProtectedRoute>
-                    <User />
-                  </ProtectedRoute>
-                }
-              />
+              (if (data) return <Route path="/myaccount/*" element={<User />} />
+              ; else return <Route path="/login/*" element={<Login />} />
+              ;)
+              {/* <ProtectedRoute element={<User />} /> */}
               <Route path="profile/:user" element={<UserProfile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
