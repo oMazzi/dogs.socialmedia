@@ -52,7 +52,7 @@ export default function photo(state = initialState, action) {
   }
 }
 
-export const fecthPhoto = (id) => async (dispatch) => {
+export const fetchPhoto = (id) => async (dispatch) => {
   try {
     dispatch(fetchPhotoStarted());
     const { url, options } = PHOTO_GET(id);
