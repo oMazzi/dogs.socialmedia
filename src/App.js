@@ -25,10 +25,7 @@ function App() {
         <Header />
         <main className="AppBody">
           <Routes>
-            <Route
-              path="https://omazzi.github.io/dogs.socialmedia/"
-              element={<Home />}
-            />
+            <Route path="/" element={<Home />} />
             <Route path="login/*" element={<Login />} />
             (if (data) return <Route path="/myaccount/*" element={<User />} />
             ; else return <Route path="/login/*" element={<Login />} />
