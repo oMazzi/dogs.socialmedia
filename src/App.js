@@ -25,7 +25,7 @@ function App() {
         <Header />
         <main className="AppBody">
           <Routes>
-            <Route path="/dogs.socialmedia/" element={<Home />} />
+            <Route path="/dogs.socialmedia/*" element={<Home />} />
             <Route path="login/*" element={<Login />} />
             (if (data) return <Route path="/myaccount/*" element={<User />} />
             ; else return <Route path="/login/*" element={<Login />} />
