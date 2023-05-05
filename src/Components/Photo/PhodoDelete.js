@@ -13,7 +13,7 @@ const PhodoDelete = ({ id }) => {
     if (confirm) {
       const { url, options } = PHOTO_DELETE(id);
       const { response } = await request(url, options);
-      if (response.ok) window.location.pathname('/dogs.socialmedia/');
+      if (response.ok) window.location.reload('/dogs.socialmedia/');
     }
   }
 
