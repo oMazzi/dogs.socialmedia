@@ -22,6 +22,7 @@ export const userLogout = () => async (dispatch) => {
   dispatch(resetUserState());
   dispatch(resetTokenState());
   window.localStorage.removeItem('token');
+  window.location.replace('/dogs.socialmedia/');
 };
 
 export const autoLogin = () => async (dispatch, getState) => {
